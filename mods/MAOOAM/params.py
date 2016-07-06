@@ -6,8 +6,8 @@ import numpy as np
 # Integral parameters
 #-----------------------------------------------------------
 
-t_trans = 4000  #  transient period (e.g. 1.e7)
-t_run = 4000  #  length of trajectory on the attractor (e.g. 5.e8)
+t_trans = 40000  #  transient period (e.g. 1.e7)
+t_run = 40000  #  length of trajectory on the attractor (e.g. 5.e8)
 dt = 1      #  the time step
 writeout = True   #  write out all variables every tw time units
 tw = 10   #  the time step of writing

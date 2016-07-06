@@ -30,7 +30,6 @@ print (bcolors.OKBLUE + "Starting the transient time evolution..." + bcolors.END
 t=0.
 T=time.clock()
 while(t<params.t_trans) :
-	print (t)
 	(X,t)=integrator.step(X,t,params.dt)
 
 print (bcolors.OKBLUE + "Starting the  time evolution..." + bcolors.ENDC)
@@ -41,7 +40,6 @@ t=0.
 
 while (t<params.t_run) :
 	#one step
-	print (t)
 	(X,t)=integrator.step(X,t,params.dt)
 	if(t%(params.tw) <params.dt) :
 		fichier.write(str(t)+" ")
