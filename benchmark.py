@@ -29,13 +29,21 @@ cfg = Settings()
 #cfg.rot     = True
 #method      = EnKF
 
-from mods.LA.raanes2014 import params
+from mods.MAOOAM.maooam16 import params
 # Expected rmse_a = 0.3
-cfg.N         = 30
-cfg.infl      = 3.4
-cfg.AMethod   = 'PertObs'
-cfg.rot       = False
-cfg.da_method = EnKF
+# cfg.N         = 30
+# cfg.infl      = 3.4
+# cfg.AMethod   = 'PertObs'
+# cfg.rot       = False
+# cfg.da_method = EnKF
+
+cfg = Settings()
+
+
+cfg.infl    = 1.05
+cfg.AMethod = 'PertObs'
+method      = EnKF
+cfg.N=100
 
 ############################
 # Generate synthetic truth/obs

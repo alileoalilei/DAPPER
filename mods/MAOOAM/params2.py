@@ -45,9 +45,10 @@ def init_params(nboc,nbatm):
 #don't forget to delete ic.py, it will regenerates
 
 oms =get_modes(2,4)# ocean mode selection
-ams =get_modes(2,4)# atmosphere mode selection
-nboc,nbatm = 2*4,2*4	  # number of blocks
+ams =get_modes(2,2)# atmosphere mode selection
+nboc,nbatm = 2*4,2*2	  # number of blocks
 (natm,noc,ndim)=init_params(nboc,nbatm)
+
 
 #noc,natm=8,10     # number of basis functions
 #ndim=36		  # number of variables

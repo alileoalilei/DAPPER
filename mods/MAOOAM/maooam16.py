@@ -31,13 +31,20 @@ f = {
     'noise': 0
     }
 
-X0 = GaussRV(C=0.01,mu=mu0)
-#X0 = GaussRV(C=0.0,mu=mu0)
+C0=0.01*eye(m)
+C0[0,0]= 0 # because the first component of the state vector is 1
+
+X0 = GaussRV(C=CovMat(C0),mu=mu0)
+#X0 = GaussRV(C=0.01,mu=mu0)
+
+R = C0.copy()
+R[0,0]= 0.01
+hnoise = GaussRV(C=CovMat(R),mu=0)
 
 h = {
     'm': p,
     'model': lambda x,t: x,
-    'noise': GaussRV(C=0.01,m=p)
+    'noise': hnoise,
     }
 
 other = {'name': os.path.basename(__file__)}
