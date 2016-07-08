@@ -5,7 +5,7 @@ from scipy.sparse import dok_matrix
 from scipy.sparse import csr_matrix
 import time
 
-aotensor=aotensor.init_aotensor()
+tensor=aotensor.init_aotensor()
 
 
 def sparse_mul3(arr) :
@@ -13,10 +13,11 @@ def sparse_mul3(arr) :
 	tensor(i,j,k)* arr(j) * arr(k) """
 	res=np.zeros(ndim+1)
 	for i in range(1,ndim+1) :
-		X=aotensor[i]
+		X=tensor[i].nonzero()
 		for m in range(0,len(X)) :
-			(j,k,v)=X[m]
-			res[i]=res[i]+v*arr[j]*arr[k]
+			j=X[0][m]
+			k=X[1][m]
+			res[i]=res[i]+tensor[i][j,k]*arr[j]*arr[k]
 	return res
 	
 def tendencies(y) :

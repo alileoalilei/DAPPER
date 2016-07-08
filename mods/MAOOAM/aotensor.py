@@ -101,17 +101,8 @@ def init_aotensor() :
 			fichier.write("("+str(j)+","+str(k)+"):"+str(Xbis[j,k])+"\n")
 		fichier.close()
 	tensor=np.array(tensor_liste)
-	
-	global aotensor
-	aotensor=np.empty(ndim+1,dtype=object)
-	for i in range(1,ndim+1) :
-		X=tensor[i].nonzero()
-		aotensor[i]=[]
-		for m in range(0,tensor[i].nnz) :
-			j=X[0][m]
-			k=X[1][m]
-			aotensor[i].append((j,k, tensor[i][j,k]))
-	return aotensor
+
+	return tensor
 
 		
 

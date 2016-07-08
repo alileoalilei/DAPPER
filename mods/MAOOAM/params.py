@@ -6,8 +6,8 @@ import numpy as np
 # Integral parameters
 #-----------------------------------------------------------
 
-t_trans = 40000  #  transient period (e.g. 1.e7)
-t_run = 40000  #  length of trajectory on the attractor (e.g. 5.e8)
+t_trans = 4000  #  transient period (e.g. 1.e7)
+t_run = 4000  #  length of trajectory on the attractor (e.g. 5.e8)
 dt = 1      #  the time step
 writeout = True   #  write out all variables every tw time units
 tw = 10   #  the time step of writing
@@ -27,7 +27,7 @@ def get_modes(nxmax,nymax) :
 def init_params(nboc,nbatm):
 	natmres=0
 	for i in range (0,nbatm):
-		if (ams[i,1]==1) :
+		if (ams[i,0]==1) :
 			natmres=natmres+3
 		else:
 			natmres=natmres+2
