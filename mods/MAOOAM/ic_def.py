@@ -1,6 +1,6 @@
 #ic definition
-from params import natm,noc,ndim,t_trans,t_run
-from inprod_analytic import awavenum,owavenum,init_inprod
+from mods.MAOOAM.params2 import natm,noc,ndim,t_trans,t_run
+from mods.MAOOAM.inprod_analytic import awavenum,owavenum,init_inprod
 import os.path
 
 

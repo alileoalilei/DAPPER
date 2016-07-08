@@ -19,11 +19,16 @@ tw = 10   #  the time step of writing
 #generate the mode blocks for either ocean or atmosphere
 #up to given wavenumbers
 #nxmax and nymax are the maximum
+
 def get_modes(nxmax,nymax) :
-	x=np.arange(1,nxmax+1) #creates a lines 1,2,..,nxmax
-	y=np.arange(1,nymax+1) #creates a lines 1,2,..,nymax
-	MS= np.meshgrid(x,y)   #creates all the possibilites with x,y
-	return np.array(MS).T.reshape(nxmax*nymax,2)
+	res=np.zeros((nxmax*nymax,2))
+	i=0
+	for Nx in range (1,nxmax+1) :
+		for Ny in range (1,nymax+1) :
+			res[i]=[Nx,Ny]
+			i+=1
+	return res
+
 def init_params(nboc,nbatm):
 	natmres=0
 	for i in range (0,nbatm):
@@ -39,10 +44,9 @@ def init_params(nboc,nbatm):
 #select (.,.) the maximum value admitted for Nx and Ny
 #don't forget to delete ic.py, it will regenerates
 
-oms =get_modes(2,4)# ocean mode selection
-ams =get_modes(2,2)# atmosphere mode selection
-
-nboc,nbatm = 2*4,2*2	  # number of blocks
+oms =get_modes(4,4)# ocean mode selection
+ams =get_modes(4,4)# atmosphere mode selection
+nboc,nbatm = 4*4,4*4	  # number of blocks
 (natm,noc,ndim)=init_params(nboc,nbatm)
 
 #noc,natm=8,10     # number of basis functions

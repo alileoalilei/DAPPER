@@ -1,4 +1,4 @@
-from inprod_analytic import *
+from mods.MAOOAM.inprod_analytic import *
 #from params import natm,noc
 import numpy as np
 

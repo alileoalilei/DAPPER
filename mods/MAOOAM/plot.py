@@ -6,7 +6,7 @@ from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.animation as animation
 
 from pylab import *
-from params import ndim,tw,t_run,t_trans
+from mods.MAOOAM.params2 import ndim,tw,t_run,t_trans
 def plotC():
 	"""" 3-D plot of the attractor.
 	Axis X : thetao2 : 2nd coordinates of the ocean temperature
@@ -20,13 +20,13 @@ def plotC():
 	psia1=data[:,1]
 	
 
-	#plot(t,psio2)
-	#show()
+# 	plot(t,psia1)
+# 	show()
 	
 	fig = plt.figure()
 	ax = fig.add_subplot(111, projection='3d')
 
-	ax.plot(xs=thetao2, ys=psio2, zs=psia1, zdir='z', label='zs=0, zdir=z')
+	ax.plot(xs=psio2, ys=thetao2, zs=psia1, zdir='z', label='zs=0, zdir=z')
 
 	plt.show()
 	
@@ -96,4 +96,4 @@ def plot_stat():
 
 
 if __name__ == "__main__":
-	plotD()
+	plotC()

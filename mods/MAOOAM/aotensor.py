@@ -1,5 +1,5 @@
-from params import *
-from inprod_analytic import *
+from mods.MAOOAM.params2 import *
+from mods.MAOOAM.inprod_analytic import *
 import numpy as np
 from scipy.sparse import dok_matrix
 from scipy.sparse import csr_matrix
@@ -93,7 +93,7 @@ def init_aotensor() :
 		#print (Xbis)
 		X=Xbis
 		tensor_liste.append(X)
-		fichier = open("tensor/tenseur"+str(i)+".dat", "w")
+		fichier = open("mods/MAOOAM/tensor/tenseur"+str(i)+".dat", "w")
 		Y=Xbis.nonzero()
 		for m in range(0,len(Y[0])) :
 			j=Y[0][m]
@@ -101,8 +101,16 @@ def init_aotensor() :
 			fichier.write("("+str(j)+","+str(k)+"):"+str(Xbis[j,k])+"\n")
 		fichier.close()
 	tensor=np.array(tensor_liste)
-
-	return tensor
+	
+	global aotensor
+	aotensor=[]
+	for i in range(1,ndim+1) :
+		X=tensor[i].nonzero()
+		for m in range(0,tensor[i].nnz) :
+			j=X[0][m]
+			k=X[1][m]
+			aotensor.append((i,j,k, tensor[i][j,k]))
+	return aotensor
 
 		
 

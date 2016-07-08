@@ -2,7 +2,7 @@
 #Inner products between the truncated set of basis functions for the ocean and atmosphere streamfunction fields.
 
 import numpy as np
-from params import nbatm, nboc, natm,noc,n,oms,ams,pi
+from mods.MAOOAM.params2 import nbatm, nboc, natm,noc,n,oms,ams,pi
 from scipy.sparse import csr_matrix
 
 
@@ -344,7 +344,6 @@ def S4(Pj,Pk,Hj,Hk) :
 
 
 #initialization of the variables
-
 awavenum=np.empty(natm, dtype=object)
 owavenum=np.empty(noc, dtype=object)
 atmos=atm_tensors(natm)
