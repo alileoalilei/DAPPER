@@ -44,9 +44,9 @@ def init_params(nboc,nbatm):
 #select (.,.) the maximum value admitted for Nx and Ny
 #don't forget to delete ic.py, it will regenerates
 
-oms =get_modes(4,4)# ocean mode selection
-ams =get_modes(4,4)# atmosphere mode selection
-nboc,nbatm = 4*4,4*4	  # number of blocks
+oms =get_modes(2,4)# ocean mode selection
+ams =get_modes(2,4)# atmosphere mode selection
+nboc,nbatm = 2*4,2*4	  # number of blocks
 (natm,noc,ndim)=init_params(nboc,nbatm)
 
 #noc,natm=8,10     # number of basis functions
@@ -68,7 +68,7 @@ phi0_npi = 0.25e0 #  latitude exprimed in fraction of pi
 gp    = 3.1e-2    #  reduced gravity
 r     = 1.e-7     #  frictional coefficient at the bottom of the ocean	
 h     = 136.5      #  depth of the water layer of the ocean
-d     = 1.1e-7     #  the coupling parameter (should be divided by f0 in order to be adimensional)
+d     = 1e-8     # 1.1 10-7 the coupling parameter (should be divided by f0 in order to be adimensional)
 
 #Parameters for the atmosphere
 k     = 0.0145    #  atmosphere bottom friction coefficient
@@ -77,7 +77,7 @@ sig0  = 0.1e0     #  static stability of the atmosphere
 
 #Temperature-related parameters for the ocean
 Go    = 5.46e8      #  Specific heat capacity of the ocean (50m layer)
-Co    = 310.e0    #  Constant short-wave radiation of the ocean
+Co    = 200.e0    #310.0 GMD  Constant short-wave radiation of the ocean
 To0   = 301.46e0    #  Stationary solution for the 0-th order ocean temperature
 
 #Temperature-related parameters for the atmosphere
@@ -88,7 +88,7 @@ Ta0   = 289.30    #  Stationary solution for the 0-th order atmospheric temperat
 
 #Other temperature-related parameters/constants
 sc    = 1.      #  Ratio of surface to atmosphere temperature
-lambdaa = 15.06   #  Sensible + turbulent heat exchange between ocean and atmosphere
+lambdaa = 20   #  15.06 GMD Sensible + turbulent heat exchange between ocean and atmosphere
 rr    = 287.e0    #  Gas constant of dry air
 sb    = 5.6e-8    #  Stefan-Boltzmann constant
 
