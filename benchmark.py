@@ -33,9 +33,10 @@ cfg = Settings()
 
 from mods.Lorenz95.sak08 import params
 #
-cfg.N         = 24
-cfg.infl      = 1.018
-cfg.AMethod   = 'Sqrt'
+cfg.N         = 20
+#cfg.infl      = 1.02
+cfg.infl      = 1.0
+cfg.mv_infl   = np.linspace(1.005,1.03,cfg.N)
 cfg.rot       = True
 cfg.da_method = EnKF
 #
